@@ -74,10 +74,10 @@ What aspect of security do load balancers protect? What is the advantage of a ju
 - Load Balancers provide protection against Denial of Service (DDoS) attacks. The advantage of a jump box is to provide access to a user from a single node which allows it to be monitored easily. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?
+- What does Filebeat watch for?
 - Filebeat is used to forward and centralize log data. It allows the user to collect log events (ssh logins, sudo commands, new users and groups).
-- _TODO: What does Metricbeat record?_
-- Collects metrics from the operating system and services running on the server. Shows CPU Usage, Memory Usage, and Network IO.
+- What does Metricbeat record?_
+- Takes metrics and statistics from an operating system and from the services running on it.
 
 The configuration details of each machine may be found below.
 
@@ -129,13 +129,16 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- Web 1: 10.0.0.5
+- Web 2: 10.0.0.7
+- Web 3: 10.0.0.10
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- Filebeat and Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filbeat: Detects any changes to the filesystem. Allows easy monitoring of SSH logins, sudo commands, and any groups and user changes.
+- Metricbeat: Collects metrics from the operating system and services running on the server. Shows CPU Usage, Memory Usage, and Network IO.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
