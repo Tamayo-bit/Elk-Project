@@ -148,10 +148,12 @@ SSH into the control node and follow the steps below:
 - Update the hosts file to include the Elk Server's Ip under a new category called [Elk]
 - Run the playbook, and navigate to http://40.71.84.22:5601/app/kibana to check that the installation worked as expected.
 
-- _Which file is the playbook? Where do you copy it?_
-- [Install-Elk.yml](https://github.com/Tamayo-bit/Elk-Project/blob/main/Ansible/install-elk.yml). You would copy it to the Ansible Container in this case youthful_buck.
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
-- [filebeat-config.yml](https://github.com/Tamayo-bit/Elk-Project/blob/main/Ansible/filebeat-config.yml). You go into the config file and edit line 1105 and 1805 to include the Elk server's ip address. Once the ip address has been entered the playbook will need to specify the source location for the filebeat-config.yml so that it only installs onto the Elk Server.
-- _Which URL do you navigate to in order to check that the ELK server is running?
-http://40.71.84.22:5601/app/kibana
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+- Which file is the playbook? Where do you copy it?_
+  - [Install-Elk.yml](https://github.com/Tamayo-bit/Elk-Project/blob/main/Ansible/install-elk.yml). You would copy it to the Ansible Container in this case youthful_buck.
+- Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+  - [filebeat-config.yml](https://github.com/Tamayo-bit/Elk-Project/blob/main/Ansible/filebeat-config.yml). You go into the config file and edit line 1105 and 1805 to include the Elk server's ip address. Once the ip address has been entered the playbook will need to specify the source location for the filebeat-config.yml so that it only installs onto the Elk Server.
+- Which URL do you navigate to in order to check that the ELK server is running?
+   -  http://40.71.84.22:5601/app/kibana
+- _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
