@@ -105,7 +105,7 @@ A summary of the access policies in place can be found in the table below.
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
 | Jump Box | Yes             | 13.87.186.6 |
-|    Elk Server      |      Yes               |           13.90.19.146           |
+|    Elk Server      |      Yes               |          40.71.84.22          |
 |        Web 1  |  No                   |           10.0.0.5           |
 |    Web 2      |    No                 |           10.0.0.7           |
 |     Web 3    |       No              |        10.0.0.10              |
