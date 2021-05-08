@@ -144,8 +144,8 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the Elk Playbook file to ansible container youthful_buck.
-- Update the hosts file to include the Elk Server's Ip under a new category called [Elk]
+- Copy the [install-elk.yml](https://github.com/Tamayo-bit/Elk-Project/blob/main/Ansible/install-elk.yml) file to ansible container youthful_buck.
+- Update the hosts file to include the Elk Server's Ip under a new category called [Elk] as seen in line 31 and 32.
 - Run the playbook, and navigate to http://40.71.84.22:5601/app/kibana to check that the installation worked as expected.
 
 
@@ -157,3 +157,42 @@ SSH into the control node and follow the steps below:
    -  http://40.71.84.22:5601/app/kibana
 - _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
+```
+# SSH to Jumpbox
+$ sudo docker start youthful_buck
+$ sudo docker attach youthful_buck
+# We will want to locate where all our files are
+$ cd /etc/ansible
+$ ls
+ansible.cfg files hosts install-elk.yml pentest.yml roles
+$ cd files
+filebeat-config.yml filebeat-playbook.yml metricbeat-config.yml metricbeat-playbook.yml
+# Now that we know the locations of our files within the docker container we can exit and begin to download the files and upload them to Github repository.
+$ exit
+# Clone repository
+$ git clone https://github.com/Tamayo-bit/Elk-Project.git
+$ cd /Elk-Project
+$ mkdir Ansible
+# Move Playbooks and hosts files from the cocker containter into /Elk-Project directory
+$ sudo docker cp youthful_buck:/etc/ansible/hosts /home/RedAdmin/Elk-Project/Ansible
+$ sudo docker cp youthful_buck:/etc/ansible/files/filebeat-config.yml /home/RedAdmin/Elk-Project/Ansible
+$ sudo docker cp youthful_buck:/etc/ansible/files/filebeat-playbook.yml /home/RedAdmin/Elk-Project/Ansible
+$ sudo docker cp youthful_buck:/etc/ansible/files/metricbeat-config.yml /home/RedAdmin/Elk-Project/Ansible
+$ sudo docker cp youthful_buck:/etc/ansible/files/metricbeat-playbook.yml /home/RedAdmin/Elk-Project/Ansible
+# This pulls the playbooks, configs, and host file from the docker containter.
+$ git add .
+$ git commit -m "First commit"
+$ git push
+# The terminal will request your github username and password to push the files.
+# Next we need to ensure that the hosts file contains the proper ips to ensure the playbooks will run properly. You'll want to start and attach to the docker container once again.
+$ cd /etc/ansible
+$ sudo nano hosts
+# Ensure that you remove the # next to [webservers] and add your ips for your vms under line 24. Once this is done you'll need to go create a new line under 29 and add [elk]. Under the [elk] line you'll add the up for your elk machine. Refer to hosts file for visual. Once the ips are added to the proper sections you can run the playbooks as followed:
+$ cd /etc/ansible
+$ ansible-playbook install_elk.yml 
+$ cd /etc/ansible/files
+$ ansible-playbook filebeat-playbook.yml
+$ ansible-playbook metricbeat-playbook.yml
+# If succesfully done run the following command:
+$ curl http://10.1.0.0.4:5601
+# This should print a HTML onto the console showing that it is up and running. You can then visit the site at http://40.71.84.22:5601/app/kibana to ensure everything is up and running.
