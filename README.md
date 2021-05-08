@@ -196,3 +196,5 @@ $ ansible-playbook metricbeat-playbook.yml
 # If succesfully done run the following command:
 $ curl http://10.1.0.0.4:5601
 # This should print a HTML onto the console showing that it is up and running. You can then visit the site at http://40.71.84.22:5601/app/kibana to ensure everything is up and running.
+
+```
