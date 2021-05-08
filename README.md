@@ -173,7 +173,7 @@ $ exit
 $ git clone https://github.com/Tamayo-bit/Elk-Project.git
 $ cd /Elk-Project
 $ mkdir Ansible
-# Move Playbooks and hosts files from the cocker containter into /Elk-Project directory
+# Move Playbooks and hosts files from the docker containter into /Elk-Project directory
 $ sudo docker cp youthful_buck:/etc/ansible/hosts /home/RedAdmin/Elk-Project/Ansible
 $ sudo docker cp youthful_buck:/etc/ansible/files/filebeat-config.yml /home/RedAdmin/Elk-Project/Ansible
 $ sudo docker cp youthful_buck:/etc/ansible/files/filebeat-playbook.yml /home/RedAdmin/Elk-Project/Ansible
