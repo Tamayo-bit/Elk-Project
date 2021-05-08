@@ -74,11 +74,12 @@ What aspect of security do load balancers protect? What is the advantage of a ju
 - Load Balancers provide protection against Denial of Service (DDoS) attacks. The advantage of a jump box is to provide access to a user from a single node which allows it to be monitored easily. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
+- _TODO: What does Filebeat watch for?
+- Filebeat is used to forward and centralize log data. It allows the user to collect log events (ssh logins, sudo commands, new users and groups).
 - _TODO: What does Metricbeat record?_
+- Collects metrics from the operating system and services running on the server. Shows CPU Usage, Memory Usage, and Network IO.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
